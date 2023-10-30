@@ -7,7 +7,7 @@ import {
   FETCH_CLIENT,
   START_LOADING,
   END_LOADING,
-} from '../actions/constants.js';
+} from '../actions/constants.jsx';
 
 const clients = (state = { isLoading: false, clients: [] }, action) => {
   switch (action.type) {

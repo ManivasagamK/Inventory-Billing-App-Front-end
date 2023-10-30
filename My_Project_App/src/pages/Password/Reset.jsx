@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, Paper, Typography, Container, Grid } from '@mui/material';
-import Field from '../Login/Field.js';
+import Field from '../Login/Field.jsx';
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { reset } from '../../actions/auth';
+import { reset } from '../../actions/auth.jsx';
 
 const Reset = () => {
   const [form, setForm] = useState('');

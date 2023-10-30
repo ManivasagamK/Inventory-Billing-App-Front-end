@@ -1,4 +1,4 @@
-import { AUTH, LOGOUT, UPDATE_USER } from '../actions/constants.js';
+import { AUTH, LOGOUT, UPDATE_USER } from '../actions/constants.jsx';
 
 const authReducer = (state = { authData: null }, action) => {
   switch (action.type) {

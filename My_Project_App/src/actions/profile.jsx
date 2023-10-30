@@ -8,8 +8,8 @@ import {
   START_LOADING,
   END_LOADING,
   FETCH_PROFILE,
-} from './constants.js';
-import * as api from '../api/index.js';
+} from './constants.jsx';
+import * as api from '../api/index.jsx';
 
 export const getProfile = (id) => async (dispatch) => {
   try {

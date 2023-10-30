@@ -1,27 +1,27 @@
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar.js';
-import Header from './components/Header/Header.js';
-import Home from './pages/Home/Home.js';
-import Login from './pages/Login/Login.js';
+import NavBar from './components/NavBar/NavBar';
+import Header from './components/Header/Header';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
 import SnackbarProvider from 'react-simple-snackbar';
-import ClientList from './pages/clients/ClientList.js';
-import Footer from './components/Footer/Footer.js';
-import Invoice from './pages/Invoice/Invoice.js';
-import InvoiceDetails from './pages/InvoiceDetails/InvoiceDetails.js';
-import Invoices from './pages/Invoices/Invoices.js';
-import Dashboard from './pages/Dashboard/Dashboard.js';
-import Settings from './pages/Settings/Settings.js';
-import Forgot from './pages/Password/Forgot.js';
-import Reset from './pages/Password/Reset.js';
+import ClientList from './pages/clients/ClientList';
+import Footer from './components/Footer/Footer';
+import Invoice from './pages/Invoice/Invoice';
+import InvoiceDetails from './pages/InvoiceDetails/InvoiceDetails';
+import Invoices from './pages/Invoices/Invoices';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Settings from './pages/Settings/Settings';
+import Forgot from './pages/Password/Forgot';
+import Reset from './pages/Password/Reset';
 
 function App() {
   const user = JSON.parse(localStorage.getItem('profile'));
 
   return (
     <BrowserRouter>
-      <GoogleOAuthProvider
-        clientId={`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`}>
+      {/* <GoogleOAuthProvider */}
+        {/* clientId={`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`}> */}
         <SnackbarProvider>
           {user && <NavBar />}
           <Header />
@@ -40,7 +40,7 @@ function App() {
           </Routes>
           <Footer />
         </SnackbarProvider>
-      </GoogleOAuthProvider>
+      {/* </GoogleOAuthProvider> */}
     </BrowserRouter>
   );
 }

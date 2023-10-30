@@ -1,4 +1,4 @@
-import * as api from '../api/index.js';
+import * as api from '../api/index.jsx';
 
 import {
   ADD_NEW,
@@ -8,7 +8,7 @@ import {
   FETCH_INVOICE_BY_USER,
   START_LOADING,
   END_LOADING,
-} from './constants.js';
+} from './constants.jsx';
 
 export const getInvoice = (id) => async (dispatch) => {
   const user = JSON.parse(localStorage.getItem('profile'));

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Settings.module.css';
-import Form from './Form/Form.js';
+import Form from './Form/Form.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const Settings = () => {

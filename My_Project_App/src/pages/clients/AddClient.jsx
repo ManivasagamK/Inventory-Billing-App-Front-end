@@ -11,7 +11,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { createClient, updateClient } from '../../actions/clientActions';
+import { createClient, updateClient } from '../../actions/clientActions.jsx';
 import { useSnackbar } from 'react-simple-snackbar';
 
 const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {

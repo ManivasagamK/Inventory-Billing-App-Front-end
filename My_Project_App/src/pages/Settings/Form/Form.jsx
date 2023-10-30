@@ -5,10 +5,10 @@ import { useSnackbar } from 'react-simple-snackbar';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Avatar, Button, Paper, Grid, Container } from '@mui/material';
-import Uploader from './Uploader.js';
-import { getProfilesByUser, updateProfile } from '../../../actions/profile.js';
-import Input from './Input.js';
-import ProfileDetail from './Profile.js';
+import Uploader from './Uploader.jsx';
+import { getProfilesByUser, updateProfile } from '../../../actions/profile.jsx';
+import Input from './Input.jsx';
+import ProfileDetail from './Profile.jsx';
 
 const Settings = () => {
   const user = JSON.parse(localStorage.getItem('profile'));

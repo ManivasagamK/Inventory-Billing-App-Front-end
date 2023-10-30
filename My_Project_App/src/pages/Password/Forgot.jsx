@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Button, Paper, Typography, Container, Grid } from '@mui/material';
-import Field from '../Login/Field.js';
-import { forgot } from '../../actions/auth.js';
+import Field from '../Login/Field.jsx';
+import { forgot } from '../../actions/auth.jsx';
 import styles from './Password.module.css';
 
 const Forgot = () => {

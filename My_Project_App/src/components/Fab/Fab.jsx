@@ -5,7 +5,7 @@ import 'react-tiny-fab/dist/styles.css';
 import AddIcon from '@mui/icons-material/Add';
 import CreateIcon from '@mui/icons-material/Create';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import AddClient from '../../pages/clients/AddClient.js';
+import AddClient from '../../pages/clients/AddClient.jsx';
 
 const FabButton = () => {
   const location = useLocation();

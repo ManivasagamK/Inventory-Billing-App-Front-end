@@ -1,5 +1,5 @@
-import * as api from '../api/index.js';
-import { AUTH, CREATE_PROFILE } from './constants.js';
+import * as api from '../api/index.jsx';
+import { AUTH, CREATE_PROFILE } from './constants.jsx';
 
 export const signin =
   (formData, openSnackbar, setLoading, navigate) => async (dispatch) => {
