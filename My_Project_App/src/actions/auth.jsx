@@ -24,7 +24,7 @@ export const signup =
     try {
       //Sign up the user
       const { data } = await api.signUp(formData);
-      dispatch({ type: AUTH, data });
+            dispatch({ type: AUTH, data });
       const { info } = await api.createProfile({
         name: data?.result?.name,
         email: data?.result?.email,
