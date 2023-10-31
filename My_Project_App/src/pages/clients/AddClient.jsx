@@ -64,6 +64,7 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
   };
 
   const clear = () => {
+    setCurrentId(null);
     setClientData({ name: '', email: '', phone: '', address: '', userId: [] });
   };
 

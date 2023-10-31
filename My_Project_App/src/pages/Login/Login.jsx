@@ -18,7 +18,10 @@ import { useSnackbar } from 'react-simple-snackbar';
 import CircularProgress from '@mui/material/CircularProgress';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
+// import dotenv from "dotenv";
+// dotenv.config();
 
+const clientId = import.meta.env.VITE_REACT_APP_GOOGLE_CLIENT_ID
 const initialState = {
   firstName: '',
   lastName: '',
@@ -150,7 +153,7 @@ const Login = () => {
           )}
 
           <GoogleLogin
-            clientId={`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`}
+            clientId={`${clientId}`}
             onSuccess={googleSuccess}
             onError={googleError}
             shape='pill'

@@ -14,14 +14,16 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Settings from './pages/Settings/Settings';
 import Forgot from './pages/Password/Forgot';
 import Reset from './pages/Password/Reset';
+// import dotenv from "dotenv"
+// dotenv.config();
 
 function App() {
   const user = JSON.parse(localStorage.getItem('profile'));
 
   return (
     <BrowserRouter>
-      {/* <GoogleOAuthProvider */}
-        {/* clientId={`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`}> */}
+      <GoogleOAuthProvider
+        clientId={`${import.meta.env.VITE_REACT_APP_GOOGLE_CLIENT_ID}`}>
         <SnackbarProvider>
           {user && <NavBar />}
           <Header />
@@ -40,7 +42,7 @@ function App() {
           </Routes>
           <Footer />
         </SnackbarProvider>
-      {/* </GoogleOAuthProvider> */}
+      </GoogleOAuthProvider>
     </BrowserRouter>
   );
 }
