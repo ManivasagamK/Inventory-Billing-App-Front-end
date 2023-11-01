@@ -83,8 +83,8 @@ const Header = () => {
         <img
           style={{ width: '50px', cursor: 'pointer' }}
           onClick={() => history('/')}
-          src='https://i.postimg.cc/hGZKzdkS/logo.png'
-          alt='arc-invoice'
+          src='https://i.postimg.cc/pTn6gNw6/MK-1.png '
+          alt='MK-invoice'
         />
         <button onClick={() => history('/login')} className={styles.login}>
           Get started

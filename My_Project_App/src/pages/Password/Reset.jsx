@@ -8,21 +8,22 @@ import { reset } from '../../actions/auth.jsx';
 
 const Reset = () => {
   const [form, setForm] = useState('');
+  
   const dispatch = useDispatch();
-  const history = useNavigate();
+  const navigate = useNavigate();
   const { token } = useParams();
   const user = JSON.parse(localStorage.getItem('profile'));
-
+console.log(token)
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(reset({ password: form, token: token }, history));
+    dispatch(reset({ password: form, token: token }, navigate));
   };
 
   const handleChange = (e) => setForm(e.target.value);
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => setShowPassword(!showPassword);
 
-  if (user) history('/dashboard');
+  if (user) navigate('/dashboard');
 
   return (
     <div style={{ paddingTop: '100px', paddingBottom: '100px' }}>
@@ -53,6 +54,7 @@ const Reset = () => {
                 type={showPassword ? 'text' : 'password'}
                 handleShowPassword={handleShowPassword}
               />
+              
               <Button
                 type='submit'
                 fullWidth

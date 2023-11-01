@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import styles from "./NavBar.module.css";
 
 const NavBar = () => {
   const location = useLocation();
@@ -12,16 +13,16 @@ const NavBar = () => {
   if (!user) return null;
 
   return (
-    <div>
-      <nav className='navbar'>
+    <div className={styles.navbar}>
+      <nav className='navbar' >
         <ul className='navbar-nav'>
           <li className='logo'>
             <Link to='/dashboard' className='nav-link'>
               <span className='link-text logo-text'>
                 <img
                   style={{ width: '50px' }}
-                  src='https://i.postimg.cc/hGZKzdkS/logo.png'
-                  alt='arc-invoice'
+                  src='https://i.postimg.cc/pTn6gNw6/MK-1.png'
+                  alt='Mk-invoice'
                 />
               </span>
               <svg
@@ -47,7 +48,7 @@ const NavBar = () => {
                 width='24'
                 height='24'
                 viewBox='0 0 24 24'
-                fill='none'
+                fill='red'
                 stroke='currentColor'
                 strokeWidth='2'
                 strokeLinecap='round'
@@ -67,7 +68,7 @@ const NavBar = () => {
                 width='24'
                 height='24'
                 viewBox='0 0 24 24'
-                fill='none'
+                fill='orange'
                 stroke='currentColor'
                 strokeWidth='2'
                 strokeLinecap='round'
@@ -86,7 +87,7 @@ const NavBar = () => {
                 width='24'
                 height='24'
                 viewBox='0 0 24 24'
-                fill='none'
+                fill='yellow'
                 stroke='currentColor'
                 strokeWidth='2'
                 strokeLinecap='round'
@@ -106,7 +107,7 @@ const NavBar = () => {
                 width='24'
                 height='24'
                 viewBox='0 0 24 24'
-                fill='none'
+                fill='blue'
                 stroke='currentColor'
                 strokeWidth='2'
                 strokeLinecap='round'

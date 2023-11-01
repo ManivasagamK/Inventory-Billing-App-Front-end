@@ -8,18 +8,18 @@ import styles from './Password.module.css';
 
 const Forgot = () => {
   const history = useNavigate();
-  const [form, setForm] = useState('');
+  const [formData, setFormData] = useState({email: ''});
   const [step, setStep] = useState(0);
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem('profile'));
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(forgot({ email: form }));
+    dispatch(forgot( formData ));
     window.navigator.onLine ? setStep(1) : setStep(2);
   };
 
-  const handleChange = (e) => setForm(e.target.value);
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   if (user) history('/dashboard');
 
