@@ -137,7 +137,7 @@ const Login = () => {
             {isSignup && (
               <Field
                 name='confirmPassword'
-                label='Repeat Password'
+                label='Confirm Password'
                 handleChange={handleChange}
                 type='password'
               />

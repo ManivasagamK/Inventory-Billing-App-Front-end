@@ -125,7 +125,8 @@ const Header = () => {
                       id='menu-list-grow'
                       onKeyDown={handleListKeyDown}>
                       <MenuItem onClick={() => openLink('settings')}>
-                        {(user?.result?.name).split(' ')[0]}
+                        {/* {console.log(user)} */}
+                        {(user?.result?.name).split(" ")[0]}
                       </MenuItem>
                       <MenuItem onClick={() => logout()}>Logout</MenuItem>
                     </MenuList>
