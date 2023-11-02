@@ -21,7 +21,7 @@ import jwt_decode from 'jwt-decode';
 // import dotenv from "dotenv";
 // dotenv.config();
 
-const clientId = import.meta.env.VITE_REACT_APP_GOOGLE_CLIENT_ID
+const clientId = import.meta.env.VITE_REACT_APP_GOOGLE_CLIENT_ID;
 const initialState = {
   firstName: '',
   lastName: '',

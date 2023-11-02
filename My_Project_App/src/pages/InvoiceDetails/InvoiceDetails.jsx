@@ -95,7 +95,7 @@ const InvoiceDetails = () => {
 
   const createPdf = async () => {
     try {
-      await axios.post(`${process.env.VITE_REACT_APP_API}/create-pdf`, {
+      await axios.post(`${import.meta.env.VITE_REACT_APP_API}create-pdf`, {
         name: invoice.client.name,
         address: invoice.client.address,
         phone: invoice.client.phone,
@@ -122,7 +122,7 @@ const InvoiceDetails = () => {
   const downloadPdf = async () => {
     setDownloadStatus('loading');
     try {
-      const res = await axios.get(`${process.env.VITE_REACT_APP_API}/fetch-pdf`, {
+      const res = await axios.get(`${import.meta.env.VITE_REACT_APP_API}fetch-pdf`, {
         responseType: 'blob',
       });
       const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
@@ -145,7 +145,8 @@ const InvoiceDetails = () => {
     e.preventDefault();
     setSendStatus('loading');
     try {
-      await axios.post(`${process.env.VITE_REACT_APP_API}/send-pdf`, {
+      // console.log(invoice);
+      await axios.post(`${import.meta.env.VITE_REACT_APP_API}send-pdf`, {
         name: invoice.client.name,
         address: invoice.client.address,
         phone: invoice.client.phone,
@@ -162,9 +163,10 @@ const InvoiceDetails = () => {
         status: invoice.status,
         totalAmountReceived: toCommas(totalAmountReceived),
         balanceDue: toCommas(total - totalAmountReceived),
-        link: `${process.env.REACT_APP_URL}/invoice/${invoice._id}`,
+        link: `${import.meta.env.VITE_REACT_APP_API}invoice/${invoice._id}`,
         company: company,
       });
+      // console.log("success");
       setSendStatus('success');
     } catch (error) {
       console.log(error);
