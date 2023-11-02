@@ -7,6 +7,7 @@
   min-height: -webkit-calc(100% - 186px);
   min-height: -moz-calc(100% - 186px);
   min-height: calc(100% - 186px);
+  
 }
 
 .stat {
@@ -52,6 +53,8 @@
   border-radius: 4px;
   background-color: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.068), 0 3px 6px rgba(0, 0, 0, 0.096);
+  font-family: "Comic Neue", cursive;
+  font-family: "Poppins", sans-serif;
 }
 
 .listItem h2 {
@@ -63,9 +66,13 @@
   padding: 0px 25px;
   cursor: pointer;
   color: rgb(156, 156, 156);
+  font-family: "Comic Neue", cursive;
+  font-family: "Poppins", sans-serif;
 }
 .chart {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  font-family: "Comic Neue", cursive;
+  font-family: "Poppins", sans-serif;
 }
 .listItem p {
   text-align: center;
@@ -76,6 +83,8 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   cursor: pointer;
+  font-family: "Comic Neue", cursive;
+  font-family: "Poppins", sans-serif;
   /* color: rgb(82, 82, 82) */
 }
 
@@ -136,6 +145,8 @@
   padding: 20px;
   width: 65%;
   min-height: 200px;
+  font-family: "Comic Neue", cursive;
+  font-family: "Poppins", sans-serif;
 }
 
 .donut {
@@ -167,6 +178,8 @@
   margin: 0 auto;
   overflow-x: auto;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  font-family: "Comic Neue", cursive;
+  font-family: "Poppins", sans-serif;
 }
 
 .table table {

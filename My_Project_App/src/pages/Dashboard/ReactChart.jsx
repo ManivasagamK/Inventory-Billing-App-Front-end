@@ -43,4 +43,4 @@ const ReactChart =({ paymentHistory }) => {
     );
   }
 
-  export default ReactChart
+export default ReactChart;

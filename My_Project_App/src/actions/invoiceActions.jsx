@@ -43,6 +43,7 @@ export const createInvoice = (invoice, history) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
     const { data } = await api.addInvoice(invoice);
+    console.log(data);
     dispatch({ type: ADD_NEW, payload: data });
     history(`/invoice/${data._id}`);
     dispatch({ type: END_LOADING });
