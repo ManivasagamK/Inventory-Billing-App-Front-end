@@ -1,29 +1,29 @@
 /* eslint-disable */
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
-import { useDispatch, useSelector } from 'react-redux';
-import { createClient, updateClient } from '../../actions/clientActions.jsx';
-import { useSnackbar } from 'react-simple-snackbar';
+
+import { useDispatch, useSelector } from "react-redux";
+import { createClient, updateClient } from "../../actions/clientActions.jsx";
+import { useSnackbar } from "react-simple-snackbar";
 
 const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
   const location = useLocation();
   const [clientData, setClientData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    userId: '',
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    userId: "",
   });
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const dispatch = useDispatch();
   const client = useSelector((state) =>
     currentId ? state.clients.clients.find((c) => c._id === currentId) : null
@@ -38,8 +38,7 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
   }, [client]);
 
   useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem('profile')));
-    // setClientData({...clientData, userId: user?.result?._id})
+    setUser(JSON.parse(localStorage.getItem("profile")));
   }, [location]);
 
   useEffect(() => {
@@ -65,7 +64,7 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
 
   const clear = () => {
     setCurrentId(null);
-    setClientData({ name: '', email: '', phone: '', address: '', userId: [] });
+    setClientData({ name: "", email: "", phone: "", address: "", userId: [] });
   };
 
   const handleClose = () => {
@@ -73,21 +72,21 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
   };
 
   const inputStyle = {
-    display: 'block',
-    padding: '1.4rem 0.75rem',
-    width: '100%',
-    fontSize: '0.8rem',
+    display: "block",
+    padding: "1.4rem 0.75rem",
+    width: "100%",
+    fontSize: "0.8rem",
     lineHeight: 1.25,
-    color: '#55595c',
-    backgroundColor: '#fff',
-    backgroundImage: 'none',
-    backgroundClip: 'padding-box',
-    borderTop: '0',
-    borderRight: '0',
-    borderBottom: '1px solid #eee',
-    borderLeft: '0',
-    borderRadius: '3px',
-    transition: 'all 0.25s cubic-bezier(0.4, 0, 1, 1)',
+    color: "#55595c",
+    backgroundColor: "#fff",
+    backgroundImage: "none",
+    backgroundClip: "padding-box",
+    borderTop: "0",
+    borderRight: "0",
+    borderBottom: "1px solid #eee",
+    borderLeft: "0",
+    borderRadius: "3px",
+    transition: "all 0.25s cubic-bezier(0.4, 0, 1, 1)",
   };
 
   return (
@@ -95,37 +94,37 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
       <form>
         <Dialog
           onClose={handleClose}
-          aria-labelledby='customized-dialog-title'
+          aria-labelledby="customized-dialog-title"
           open={open}
           fullWidth>
           <IconButton
-            aria-label='close'
+            aria-label="close"
             sx={{
-              position: 'absolute',
-              right: '8px',
-              top: '8px',
-              color: 'white',
+              position: "absolute",
+              right: "8px",
+              top: "8px",
+              color: "white",
             }}
             onClick={handleClose}>
             <CloseIcon />
           </IconButton>
           <DialogTitle
-            id='customized-dialog-title'
+            id="customized-dialog-title"
             onClose={handleClose}
             style={{
-              paddingLeft: '20px',
-              color: 'white',
-              backgroundColor: '#1976D2',
+              paddingLeft: "20px",
+              color: "white",
+              backgroundColor: "#1976D2",
             }}>
-            {currentId ? 'Edit Customer' : 'Add new Client'}
+            {currentId ? "Edit Customer" : "Add new Client"}
           </DialogTitle>
           <DialogContent dividers>
-            <div className='customInputs'>
+            <div className="customInputs">
               <input
-                placeholder='Name'
+                placeholder="Name"
                 style={inputStyle}
-                name='name'
-                type='text'
+                name="name"
+                type="text"
                 onChange={(e) =>
                   setClientData({ ...clientData, name: e.target.value })
                 }
@@ -133,10 +132,10 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
               />
 
               <input
-                placeholder='Email'
+                placeholder="Email"
                 style={inputStyle}
-                name='email'
-                type='text'
+                name="email"
+                type="text"
                 onChange={(e) =>
                   setClientData({ ...clientData, email: e.target.value })
                 }
@@ -144,10 +143,10 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
               />
 
               <input
-                placeholder='Phone'
+                placeholder="Phone"
                 style={inputStyle}
-                name='phone'
-                type='text'
+                name="phone"
+                type="text"
                 onChange={(e) =>
                   setClientData({ ...clientData, phone: e.target.value })
                 }
@@ -155,10 +154,10 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
               />
 
               <input
-                placeholder='Address'
+                placeholder="Address"
                 style={inputStyle}
-                name='address'
-                type='text'
+                name="address"
+                type="text"
                 onChange={(e) =>
                   setClientData({ ...clientData, address: e.target.value })
                 }
@@ -169,8 +168,8 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
           <DialogActions>
             <Button
               onClick={handleSubmitClient}
-              variant='contained'
-              style={{ marginRight: '25px' }}>
+              variant="contained"
+              style={{ marginRight: "25px" }}>
               Save Customer
             </Button>
           </DialogActions>

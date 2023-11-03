@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactApexChart from 'react-apexcharts';
-import styles from './Dashboard.module.css';
+import React from "react";
+import ReactApexChart from "react-apexcharts";
+import styles from "./Dashboard.module.css";
 
 function Chart({ paymentHistory }) {
   let paymentDates = [];
@@ -17,7 +17,7 @@ function Chart({ paymentHistory }) {
 
   const series = [
     {
-      name: 'Payment Recieved',
+      name: "Payment Recieved",
       data: paymentReceived,
     },
   ];
@@ -31,15 +31,15 @@ function Chart({ paymentHistory }) {
     },
 
     stroke: {
-      curve: 'smooth',
+      curve: "smooth",
     },
     xaxis: {
-      type: 'datetime',
+      type: "datetime",
       categories: paymentDates,
     },
     tooltip: {
       x: {
-        format: 'dd/MM/yy',
+        format: "dd/MM/yy",
       },
     },
   };
@@ -47,19 +47,19 @@ function Chart({ paymentHistory }) {
   return (
     <div
       style={{
-        backgroundColor: 'white',
-        textAlign: 'center',
-        width: '90%',
-        margin: '0px auto',
-        marginTop: '20px',
-        padding: '10px',
+        backgroundColor: "white",
+        textAlign: "center",
+        width: "90%",
+        margin: "0px auto",
+        marginTop: "20px",
+        padding: "10px",
       }}
       className={styles.chart}>
       <br />
       <ReactApexChart
         options={options}
         series={series}
-        type='bar'
+        type="bar"
         height={300}
       />
     </div>

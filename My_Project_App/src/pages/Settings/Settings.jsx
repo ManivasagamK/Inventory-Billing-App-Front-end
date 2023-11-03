@@ -1,14 +1,14 @@
-import React from 'react';
-import styles from './Settings.module.css';
-import Form from './Form/Form.jsx';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import styles from "./Settings.module.css";
+import Form from "./Form/Form.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Settings = () => {
   const history = useNavigate();
-  const user = JSON.parse(localStorage.getItem('profile'));
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   if (!user) {
-    history('/login');
+    history("/login");
   }
 
   return (

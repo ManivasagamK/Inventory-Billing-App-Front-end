@@ -8,8 +8,8 @@ import {
   START_LOADING,
   END_LOADING,
   FETCH_PROFILE,
-} from './constants.jsx';
-import * as api from '../api/index.jsx';
+} from "./constants.jsx";
+import * as api from "../api/index.jsx";
 
 export const getProfile = (id) => async (dispatch) => {
   try {
@@ -80,7 +80,7 @@ export const updateProfile = (id, form, openSnackbar) => async (dispatch) => {
     const { data } = await api.updateProfile(id, form);
 
     dispatch({ type: UPDATE_PROFILE, payload: data });
-    openSnackbar('Profile updated successfully');
+    openSnackbar("Profile updated successfully");
   } catch (error) {
     console.log(error);
   }

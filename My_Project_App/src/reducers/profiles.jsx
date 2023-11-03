@@ -8,7 +8,7 @@ import {
   START_LOADING,
   END_LOADING,
   FETCH_PROFILE,
-} from '../actions/constants.jsx';
+} from "../actions/constants.jsx";
 
 const profilesReducer = (
   state = { isLoading: false, profiles: [] },

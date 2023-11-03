@@ -2,7 +2,6 @@
   display: flex;
 }
 
-
 .header {
   display: flex;
   padding: 50px;
@@ -38,13 +37,11 @@
   background-color: rgb(243, 243, 243);
 }
 
-
 .downloadBtn {
-  width: 20%
+  width: 20%;
 }
 
 @media all and (max-width: 768px) {
-
   .buttons {
     display: flex;
     align-items: center;
@@ -59,12 +56,10 @@
   .btn {
     width: 100%;
   }
-
 }
 
 .logo {
   width: 150px;
- 
 }
 
 .invoiceNumber {
@@ -110,7 +105,8 @@
   color: gray;
 }
 
-.summaryItem p, h4 {
+.summaryItem p,
+h4 {
   padding: 12px;
 }
 
@@ -316,18 +312,15 @@ input::-webkit-inner-spin-button {
   border-top: solid 1px #b7b7b7;
 }
 
-
 .toolBar {
   display: flex;
 }
-
 
 .paymentHistory {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 
 .space {
   width: 75%;
@@ -345,19 +338,15 @@ input::-webkit-inner-spin-button {
 }
 
 @media all and (max-width: 768px) {
-
   .invoiceLayout {
-   width: 97%;
+    width: 97%;
   }
 
   .space {
-   width: 50%;
+    width: 50%;
   }
-
 
   .invoiceSummary div {
     margin-left: 0%;
-   
   }
-
 }

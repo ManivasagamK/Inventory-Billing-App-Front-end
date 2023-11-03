@@ -1,5 +1,5 @@
-import * as api from '../api/index.jsx';
-import { AUTH, CREATE_PROFILE } from './constants.jsx';
+import * as api from "../api/index.jsx";
+import { AUTH, CREATE_PROFILE } from "./constants.jsx";
 
 export const signin =
   (formData, openSnackbar, setLoading, navigate) => async (dispatch) => {
@@ -9,8 +9,8 @@ export const signin =
 
       dispatch({ type: AUTH, data });
 
-      openSnackbar('Signin successfull');
-      navigate('/dashboard');
+      openSnackbar("Signin successfull");
+      navigate("/dashboard");
       window.location.reload();
     } catch (error) {
       // console.log(error?.response?.data?.message)
@@ -24,20 +24,20 @@ export const signup =
     try {
       //Sign up the user
       const { data } = await api.signUp(formData);
-            dispatch({ type: AUTH, data });
+      dispatch({ type: AUTH, data });
       const { info } = await api.createProfile({
         name: data?.result?.name,
         email: data?.result?.email,
         userId: data?.result?._id,
-        phoneNumber: '',
-        businessName: '',
-        contactAddress: '',
-        logo: '',
-        website: '',
+        phoneNumber: "",
+        businessName: "",
+        contactAddress: "",
+        logo: "",
+        website: "",
       });
       dispatch({ type: CREATE_PROFILE, payload: info });
-      openSnackbar('Sign up successfull');
-      navigate('/dashboard');
+      openSnackbar("Sign up successfull");
+      navigate("/dashboard");
       window.location.reload();
     } catch (error) {
       console.log(error);
@@ -57,7 +57,7 @@ export const forgot = (formData) => async (dispatch) => {
 export const reset = (formData, navigate) => async (dispatch) => {
   try {
     await api.reset(formData);
-    navigate('/dashboard');
+    navigate("/dashboard");
   } catch (error) {
     console.log(error);
   }

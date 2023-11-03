@@ -1,19 +1,19 @@
 /* eslint-disable */
-import React, { useState, useEffect } from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
-import { TextField, Grid } from '@mui/material';
-import DatePicker from './DatePicker';
-import Autocomplete from '@mui/material/Autocomplete';
+import React, { useState, useEffect } from "react";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import Typography from "@mui/material/Typography";
+import { TextField, Grid } from "@mui/material";
+import DatePicker from "./DatePicker";
+import Autocomplete from "@mui/material/Autocomplete";
 
-import { useDispatch } from 'react-redux';
-import { updateInvoice } from '../../actions/invoiceActions';
+import { useDispatch } from "react-redux";
+import { updateInvoice } from "../../actions/invoiceActions";
 
 const Modal = ({ setOpen, open, invoice }) => {
   const dispatch = useDispatch();
@@ -21,9 +21,9 @@ const Modal = ({ setOpen, open, invoice }) => {
   const [payment, setPayment] = useState({
     amountPaid: 0,
     datePaid: new Date(),
-    paymentMethod: '',
-    note: '',
-    paidBy: '',
+    paymentMethod: "",
+    note: "",
+    paidBy: "",
   });
 
   //Material ui datepicker
@@ -73,8 +73,8 @@ const Modal = ({ setOpen, open, invoice }) => {
       status:
         Number(totalAmountReceived) + Number(payment.amountPaid) >=
         invoice?.total
-          ? 'Paid'
-          : 'Partial',
+          ? "Paid"
+          : "Partial",
       paymentRecords: [...paymentRecords, payment],
       totalAmountReceived:
         Number(totalAmountReceived) + Number(payment.amountPaid),
@@ -94,11 +94,11 @@ const Modal = ({ setOpen, open, invoice }) => {
   };
 
   const paymentMethods = [
-    { title: 'Bank Transfer' },
-    { title: 'Cash' },
-    { title: 'Credit Card' },
-    { title: 'PayPal' },
-    { title: 'Others' },
+    { title: "Bank Transfer" },
+    { title: "Cash" },
+    { title: "Credit Card" },
+    { title: "PayPal" },
+    { title: "Others" },
   ];
 
   return (
@@ -106,33 +106,33 @@ const Modal = ({ setOpen, open, invoice }) => {
       <form>
         <Dialog
           onClose={handleClose}
-          aria-labelledby='customized-dialog-title'
+          aria-labelledby="customized-dialog-title"
           open={open}
           fullWidth>
           <IconButton
-            aria-label='close'
+            aria-label="close"
             sx={{
-              position: 'absolute',
-              right: '8px',
-              top: '8px',
-              color: 'white',
+              position: "absolute",
+              right: "8px",
+              top: "8px",
+              color: "white",
             }}
             onClick={handleClose}>
             <CloseIcon />
           </IconButton>
           <DialogTitle
-            id='customized-dialog-title'
+            id="customized-dialog-title"
             onClose={handleClose}
             style={{
-              paddingLeft: '20px',
-              color: 'white',
-              backgroundColor: '#1976D2',
+              paddingLeft: "20px",
+              color: "white",
+              backgroundColor: "#1976D2",
             }}>
             Record Payment
           </DialogTitle>
 
           <DialogContent dividers>
-            <div style={{ width: '100%' }}>
+            <div style={{ width: "100%" }}>
               <DatePicker
                 selectedDate={selectedDate}
                 setSelectedDate={setSelectedDate}
@@ -140,12 +140,12 @@ const Modal = ({ setOpen, open, invoice }) => {
             </div>
 
             <TextField
-              type='number'
-              name='amountPaid'
-              label='Amount Paid'
+              type="number"
+              name="amountPaid"
+              label="Amount Paid"
               fullWidth
-              style={{ width: '100%', marginBottom: '10px' }}
-              variant='outlined'
+              style={{ width: "100%", marginBottom: "10px" }}
+              variant="outlined"
               onChange={(e) =>
                 setPayment({ ...payment, amountPaid: e.target.value })
               }
@@ -154,18 +154,18 @@ const Modal = ({ setOpen, open, invoice }) => {
 
             <Grid item fullWidth>
               <Autocomplete
-                id='combo-box-demo'
+                id="combo-box-demo"
                 options={paymentMethods}
-                getOptionLabel={(option) => option.title || ''}
+                getOptionLabel={(option) => option.title || ""}
                 style={{
-                  width: '100%',
-                  marginBottom: '10px',
+                  width: "100%",
+                  marginBottom: "10px",
                 }}
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    label='Payment Method'
-                    variant='outlined'
+                    label="Payment Method"
+                    variant="outlined"
                   />
                 )}
                 value={method}
@@ -174,12 +174,12 @@ const Modal = ({ setOpen, open, invoice }) => {
             </Grid>
 
             <TextField
-              type='text'
-              name='note'
-              label='Note'
+              type="text"
+              name="note"
+              label="Note"
               fullWidth
-              style={{ width: '100%' }}
-              variant='outlined'
+              style={{ width: "100%" }}
+              variant="outlined"
               onChange={(e) => setPayment({ ...payment, note: e.target.value })}
               value={payment.note}
             />
@@ -188,8 +188,8 @@ const Modal = ({ setOpen, open, invoice }) => {
             <Button
               autoFocus
               onClick={handleSubmitPayment}
-              variant='contained'
-              style={{ marginRight: '25px' }}>
+              variant="contained"
+              style={{ marginRight: "25px" }}>
               Save Record
             </Button>
           </DialogActions>

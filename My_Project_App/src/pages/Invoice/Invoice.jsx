@@ -46,7 +46,7 @@ const headerContainer = {
   paddingRight: "8px",
 };
 
-const Invoice = ({profiles}) => {
+const Invoice = ({ profiles }) => {
   const location = useLocation();
   const [invoiceData, setInvoiceData] = useState(initialState);
   const [rates, setRates] = useState(0);
@@ -264,8 +264,7 @@ const Invoice = ({profiles}) => {
               {/* <Avatar alt="Logo" variant='square' src="" className={classes.large} /> */}
               <img
                 style={{ width: "50px", height: "50px", cursor: "pointer" }}
-                
-                src={profiles ?profiles.logo : ""}
+                src={profiles ? profiles.logo : ""}
                 alt={profiles?.name}
               />
             </Grid>

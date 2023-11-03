@@ -1,4 +1,4 @@
-import * as api from '../api/index.jsx';
+import * as api from "../api/index.jsx";
 
 import {
   ADD_NEW,
@@ -8,10 +8,10 @@ import {
   FETCH_INVOICE_BY_USER,
   START_LOADING,
   END_LOADING,
-} from './constants.jsx';
+} from "./constants.jsx";
 
 export const getInvoice = (id) => async (dispatch) => {
-  const user = JSON.parse(localStorage.getItem('profile'));
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   try {
     const { data } = await api.fetchInvoice(id);
@@ -66,7 +66,7 @@ export const deleteInvoice = (id, openSnackbar) => async (dispatch) => {
     await api.deleteInvoice(id);
 
     dispatch({ type: DELETE, payload: id });
-    openSnackbar('Invoice deleted successfully');
+    openSnackbar("Invoice deleted successfully");
   } catch (error) {
     console.log(error.response);
   }

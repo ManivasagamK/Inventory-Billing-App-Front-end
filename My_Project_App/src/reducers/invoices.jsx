@@ -7,7 +7,7 @@ import {
   START_LOADING,
   END_LOADING,
   FETCH_INVOICE_BY_USER,
-} from '../actions/constants.jsx';
+} from "../actions/constants.jsx";
 
 const invoices = (state = { isLoading: false, invoices: [] }, action) => {
   switch (action.type) {

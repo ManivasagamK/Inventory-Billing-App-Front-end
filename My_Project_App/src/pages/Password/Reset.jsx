@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Button, Paper, Typography, Container, Grid } from '@mui/material';
-import Field from '../Login/Field.jsx';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Button, Paper, Typography, Container, Grid } from "@mui/material";
+import Field from "../Login/Field.jsx";
+import { useParams, useNavigate } from "react-router-dom";
 
-import { reset } from '../../actions/auth.jsx';
+import { reset } from "../../actions/auth.jsx";
 
 const Reset = () => {
-  const [form, setForm] = useState('');
-  
+  const [form, setForm] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { token } = useParams();
-  const user = JSON.parse(localStorage.getItem('profile'));
-console.log(token)
+  const user = JSON.parse(localStorage.getItem("profile"));
+  console.log(token);
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(reset({ password: form, token: token }, navigate));
@@ -23,44 +23,44 @@ console.log(token)
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => setShowPassword(!showPassword);
 
-  if (user) navigate('/dashboard');
+  if (user) navigate("/dashboard");
 
   return (
-    <div style={{ paddingTop: '100px', paddingBottom: '100px' }}>
-      <Container component='main' maxWidth='xs'>
+    <div style={{ paddingTop: "100px", paddingBottom: "100px" }}>
+      <Container component="main" maxWidth="xs">
         <Paper
           sx={{
             marginTop: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: '32px',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            padding: "32px",
           }}
-          variant='outlined'>
-          <Typography variant='h6' gutter='5'>
+          variant="outlined">
+          <Typography variant="h6" gutter="5">
             Please enter your new password
           </Typography>
 
           <form
             sx={{ margin: 8 }}
             noValidate
-            autoComplete='off'
+            autoComplete="off"
             onSubmit={handleSubmit}>
             <Grid container spacing={2}>
               <Field
-                name='password'
-                label='Password'
+                name="password"
+                label="Password"
                 handleChange={handleChange}
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 handleShowPassword={handleShowPassword}
               />
-              
+
               <Button
-                type='submit'
+                type="submit"
                 fullWidth
-                variant='contained'
-                color='primary'
-                sx={{ margin: '16px 0 16px' }}>
+                variant="contained"
+                color="primary"
+                sx={{ margin: "16px 0 16px" }}>
                 Submit
               </Button>
             </Grid>

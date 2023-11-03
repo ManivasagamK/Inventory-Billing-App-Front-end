@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactApexChart from 'react-apexcharts';
+import React from "react";
+import ReactApexChart from "react-apexcharts";
 
 const Donut = ({ unpaid, paid, partial }) => {
   const series = [unpaid.length, paid.length, partial.length];
   const options = {
     chart: {
-      type: 'donut',
+      type: "donut",
     },
-    labels: ['Unpaid Invoices', 'Paid Invoices', 'Partially Paid'],
+    labels: ["Unpaid Invoices", "Paid Invoices", "Partially Paid"],
     responsive: [
       {
         breakpoint: 480,
@@ -16,7 +16,7 @@ const Donut = ({ unpaid, paid, partial }) => {
             width: 200,
           },
           legend: {
-            position: 'bottom',
+            position: "bottom",
           },
         },
       },
@@ -28,7 +28,7 @@ const Donut = ({ unpaid, paid, partial }) => {
       <ReactApexChart
         options={options}
         series={series}
-        type='donut'
+        type="donut"
         width={450}
       />
     </div>

@@ -7,7 +7,6 @@ const Home = () => {
   return (
     <div>
       <section className={styles.hero}>
-        {/* <h1>Better way to manage your Business</h1> */}
         <h1>
           <i>Simplify, Organize, Thrive: Your Inventory, Your Success</i>
         </h1>
@@ -21,7 +20,6 @@ const Home = () => {
         </div>
         <div className={styles.imgContainer}>
           <img
-            // src='https://i.postimg.cc/Y0yT3XXw/4023504.jpg'
             src="https://i.postimg.cc/CL0WGQwk/9413885.jpg"
             alt="invoicing-app"
           />

@@ -1,8 +1,8 @@
-import React from 'react';
-import { TextField, Grid, InputAdornment, IconButton } from '@mui/material';
+import React from "react";
+import { TextField, Grid, InputAdornment, IconButton } from "@mui/material";
 
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 const Field = ({
   name,
@@ -19,19 +19,19 @@ const Field = ({
       name={name}
       onChange={handleChange}
       placeholder={placeholder}
-      variant='outlined'
+      variant="outlined"
       required
       fullWidth
       label={label}
       autoFocus={autoFocus}
       type={type}
       InputProps={
-        name === 'password'
+        name === "password"
           ? {
               endAdornment: (
-                <InputAdornment position='end'>
+                <InputAdornment position="end">
                   <IconButton onClick={handleShowPassword}>
-                    {type === 'password' ? <Visibility /> : <VisibilityOff />}
+                    {type === "password" ? <Visibility /> : <VisibilityOff />}
                   </IconButton>
                 </InputAdornment>
               ),

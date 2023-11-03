@@ -1,5 +1,5 @@
-import React from 'react';
-import { TextField, Grid } from '@mui/material';
+import React from "react";
+import { TextField, Grid } from "@mui/material";
 
 const Input = ({
   name,
@@ -17,7 +17,7 @@ const Input = ({
       value={value}
       name={name}
       onChange={handleChange}
-      variant='outlined'
+      variant="outlined"
       required
       fullWidth
       label={label}

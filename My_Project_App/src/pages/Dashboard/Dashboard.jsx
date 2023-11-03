@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react';
-import { toCommas } from '../../utils/utils';
-import styles from './Dashboard.module.css';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getInvoicesByUser } from '../../actions/invoiceActions';
-import Empty from '../../components/svgIcons/Empty';
-import Chart from './Chart';
-import Donut from './Donut';
-import moment from 'moment';
-import { Check, Pie, Bag, Card, Clock, Frown } from './Icons';
-import Spinner from '../../components/Spinner/Spinner';
+import React, { useEffect } from "react";
+import { toCommas } from "../../utils/utils";
+import styles from "./Dashboard.module.css";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getInvoicesByUser } from "../../actions/invoiceActions";
+import Empty from "../../components/svgIcons/Empty";
+import Chart from "./Chart";
+import Donut from "./Donut";
+import moment from "moment";
+import { Check, Pie, Bag, Card, Clock, Frown } from "./Icons";
+import Spinner from "../../components/Spinner/Spinner";
 
 const Dashboard = () => {
   const location = useLocation();
   const history = useNavigate();
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem('profile'));
+  const user = JSON.parse(localStorage.getItem("profile"));
   const { invoices, isLoading } = useSelector((state) => state?.invoices);
   // const unpaid = invoices?.filter((invoice) => (invoice.status === 'Unpaid') || (invoice.status === 'Partial'))
   const overDue = invoices?.filter(
@@ -58,24 +58,24 @@ const Dashboard = () => {
   }, [location, dispatch]);
 
   const unpaidInvoice = invoices?.filter(
-    (invoice) => invoice.status === 'Unpaid'
+    (invoice) => invoice.status === "Unpaid"
   );
-  const paid = invoices?.filter((invoice) => invoice.status === 'Paid');
-  const partial = invoices?.filter((invoice) => invoice.status === 'Partial');
+  const paid = invoices?.filter((invoice) => invoice.status === "Paid");
+  const partial = invoices?.filter((invoice) => invoice.status === "Partial");
 
   if (!user) {
-    history('/login');
+    history("/login");
   }
 
   if (isLoading) {
     return (
       <div
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          paddingTop: '20px',
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          paddingTop: "20px",
         }}>
         <Spinner />
       </div>
@@ -86,15 +86,15 @@ const Dashboard = () => {
     return (
       <div
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          paddingTop: '20px',
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          paddingTop: "20px",
         }}>
         {/* <Spinner /> */}
         <Empty />
-        <p style={{ padding: '40px', color: 'gray' }}>
+        <p style={{ padding: "40px", color: "gray" }}>
           Nothing to display. Click the plus icon to start creating
         </p>
       </div>
@@ -107,10 +107,10 @@ const Dashboard = () => {
         <ul className={styles.autoGrid}>
           <li
             className={styles.listItem}
-            style={{ backgroundColor: '#1976d2', color: 'white' }}>
+            style={{ backgroundColor: "#1976d2", color: "white" }}>
             <div>
               <p>{toCommas(totalPaid)}</p>
-              <h2 style={{ color: 'white' }}>Payment Received</h2>
+              <h2 style={{ color: "white" }}>Payment Received</h2>
             </div>
             <div>
               <Check />
@@ -149,10 +149,10 @@ const Dashboard = () => {
 
           <li
             className={styles.listItem}
-            style={{ backgroundColor: '#206841', color: 'white' }}>
+            style={{ backgroundColor: "#206841", color: "white" }}>
             <div>
               <p>{paid.length}</p>
-              <h2 style={{ color: 'white' }}>Paid Invoices</h2>
+              <h2 style={{ color: "white" }}>Paid Invoices</h2>
             </div>
             <div>
               <Check />
@@ -206,10 +206,10 @@ const Dashboard = () => {
       )}
 
       <section>
-        <h1 style={{ textAlign: 'center', padding: '30px' }}>
+        <h1 style={{ textAlign: "center", padding: "30px" }}>
           {paymentHistory.length
-            ? 'Recent Payments'
-            : 'No payment received yet'}
+            ? "Recent Payments"
+            : "No payment received yet"}
         </h1>
         <div>
           <div className={styles.table}>
@@ -217,12 +217,12 @@ const Dashboard = () => {
               <tbody>
                 {paymentHistory.length !== 0 && (
                   <tr>
-                    <th style={{ padding: '15px' }}></th>
-                    <th style={{ padding: '15px' }}>Paid By</th>
-                    <th style={{ padding: '15px' }}>Date Paid</th>
-                    <th style={{ padding: '15px' }}>Amount Paid</th>
-                    <th style={{ padding: '15px' }}>Payment Method</th>
-                    <th style={{ padding: '15px' }}>Note</th>
+                    <th style={{ padding: "15px" }}></th>
+                    <th style={{ padding: "15px" }}>Paid By</th>
+                    <th style={{ padding: "15px" }}>Date Paid</th>
+                    <th style={{ padding: "15px" }}>Amount Paid</th>
+                    <th style={{ padding: "15px" }}>Payment Method</th>
+                    <th style={{ padding: "15px" }}>Note</th>
                   </tr>
                 )}
 
@@ -232,9 +232,9 @@ const Dashboard = () => {
                       <button>{record?.paidBy?.charAt(0)}</button>
                     </td>
                     <td>{record.paidBy}</td>
-                    <td>{moment(record.datePaid).format('MMMM Do YYYY')}</td>
+                    <td>{moment(record.datePaid).format("MMMM Do YYYY")}</td>
                     <td>
-                      <h3 style={{ color: '#00A86B', fontSize: '14px' }}>
+                      <h3 style={{ color: "#00A86B", fontSize: "14px" }}>
                         {toCommas(record.amountPaid)}
                       </h3>
                     </td>
