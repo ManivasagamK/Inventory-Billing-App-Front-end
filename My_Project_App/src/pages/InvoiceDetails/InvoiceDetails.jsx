@@ -23,8 +23,8 @@ import Divider from "@mui/material/Divider";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import Spinner from "../../components/Spinner/Spinner";
-
-import ProgressButton from "react-progress-button";
+import LoadingButton from "@mui/lab/LoadingButton";
+// import ProgressButton from "react-progress-button";
 import axios from "axios";
 import { saveAs } from "file-saver";
 import Modal from "../Payments/Modal";
@@ -52,7 +52,8 @@ const InvoiceDetails = () => {
   // eslint-disable-next-line
   const [openSnackbar, closeSnackbar] = useSnackbar();
   const user = JSON.parse(localStorage.getItem("profile"));
-
+  const [load, setLoad] = useState(false);
+  const [load1, setLoad1] = useState(false);
   const headerContainer = {
     // display: 'flex'
     paddingTop: "8px",
@@ -65,7 +66,22 @@ const InvoiceDetails = () => {
   useEffect(() => {
     dispatch(getInvoice(id));
   }, [id, dispatch, location]);
-
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setLoad(false);
+    }, 3000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setLoad1(false);
+    }, 3000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
   useEffect(() => {
     if (invoice) {
       //Automatically set the default invoice values as the ones in the invoice to be updated
@@ -169,7 +185,7 @@ const InvoiceDetails = () => {
         link: `${import.meta.env.VITE_REACT_APP_API}/invoice/${invoice._id}`,
         company: company,
       });
-      // console.log("success");
+    
       setSendStatus("success");
     } catch (error) {
       console.log(error);
@@ -205,16 +221,32 @@ const InvoiceDetails = () => {
     <div className={styles.PageLayout}>
       {invoice?.creator?.includes(user?.result?._id || user?.result?.sub) && (
         <div className={styles.buttons}>
-          <ProgressButton
-            onClick={sendPdf}
-            state={sendStatus}
-            onSuccess={() => openSnackbar("Invoice sent successfully")}>
+          
+          <LoadingButton
+            variant="contained"
+            color="secondary"
+            loading={load}
+            onClick={() => {
+              sendPdf;
+              setLoad(true);
+              openSnackbar("Invoice sent successfully");
+            }}
+            state={sendStatus}>
             Send to Customer
-          </ProgressButton>
-
-          <ProgressButton onClick={createDownload} state={downloadStatus}>
+          </LoadingButton>
+          {/* onSuccess={() => openSnackbar("Invoice sent successfully")} */}
+          <LoadingButton
+            variant="contained"
+            color="primary"
+            loading={load1}
+            onClick={() => {
+              createDownload;
+              setLoad1(true);
+              openSnackbar("Invoice Downloaded successfully");
+            }}
+            state={downloadStatus}>
             Download PDF
-          </ProgressButton>
+          </LoadingButton>
 
           <button
             className={styles.btn}
