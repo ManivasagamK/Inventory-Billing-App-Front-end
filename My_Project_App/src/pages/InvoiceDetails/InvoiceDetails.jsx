@@ -136,7 +136,7 @@ const InvoiceDetails = () => {
   };
 
   const downloadPdf = async () => {
-    setDownloadStatus("loading");
+        setDownloadStatus("loading");
     try {
       const res = await axios.get(
         `${import.meta.env.VITE_REACT_APP_API}/fetch-pdf`,
@@ -160,8 +160,8 @@ const InvoiceDetails = () => {
   };
 
   //SEND PDF INVOICE VIA EMAIL
-  const sendPdf = async (e) => {
-    e.preventDefault();
+  const sendPdf = async () => {
+  
     setSendStatus("loading");
     try {
       // console.log(invoice);
@@ -227,20 +227,20 @@ const InvoiceDetails = () => {
             color="secondary"
             loading={load}
             onClick={() => {
-              sendPdf;
+              sendPdf();
               setLoad(true);
               openSnackbar("Invoice sent successfully");
             }}
             state={sendStatus}>
             Send to Customer
           </LoadingButton>
-          {/* onSuccess={() => openSnackbar("Invoice sent successfully")} */}
+          
           <LoadingButton
             variant="contained"
             color="primary"
             loading={load1}
             onClick={() => {
-              createDownload;
+              createDownload();
               setLoad1(true);
               openSnackbar("Invoice Downloaded successfully");
             }}
