@@ -125,6 +125,7 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
                 style={inputStyle}
                 name="name"
                 type="text"
+                required
                 onChange={(e) =>
                   setClientData({ ...clientData, name: e.target.value })
                 }
@@ -135,7 +136,8 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
                 placeholder="Email"
                 style={inputStyle}
                 name="email"
-                type="text"
+                type="email"
+                required
                 onChange={(e) =>
                   setClientData({ ...clientData, email: e.target.value })
                 }
@@ -146,7 +148,8 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
                 placeholder="Phone"
                 style={inputStyle}
                 name="phone"
-                type="text"
+                type="number"
+                required
                 onChange={(e) =>
                   setClientData({ ...clientData, phone: e.target.value })
                 }

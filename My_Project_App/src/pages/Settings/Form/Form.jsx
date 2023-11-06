@@ -118,6 +118,7 @@ const Settings = () => {
                   label="Email Address"
                   handleChange={handleChange}
                   type="email"
+                  
                   half
                   value={form?.email}
                 />
